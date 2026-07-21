@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCR PRIME PATH LAB - Accurate, Reliable, Trusted</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A3982;
+            --secondary: #4CAF50;
+            --dark: #1F2937;
+            --light: #F3F4F6;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--secondary);
+            display: block;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .header-contact a {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 10px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .header-contact a:hover {
+            background-color: #3e8e41;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #062354 100%);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #E5E7EB;
+        }
+
+        /* Special Offer Card */
+        .special-offer {
+            background: var(--white);
+            color: var(--dark);
+            max-width: 600px;
+            margin: -30px auto 30px auto;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-top: 5px solid var(--secondary);
+            text-align: center;
+        }
+
+        .special-offer h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .price-tag {
+            font-size: 24px;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .price-tag span {
+            text-decoration: line-through;
+            color: #9CA3AF;
+            font-size: 16px;
+            margin-right: 8px;
+        }
+
+        /* Search Section */
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            padding: 0 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #D1D5DB;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
+        /* Test List / Catalog */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 4px solid var(--primary);
+        }
+
+        .card.package {
+            border-left-color: var(--secondary);
+        }
+
+        .card h4 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--dark);
+            margin: 10px 0;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn-wa {
+            background-color: #25D366;
+            color: var(--white);
+        }
+
+        .btn-book {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Booking Form */
+        .form-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 40px auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>NCR PRIME PATH LAB</h1>
+                <span>ACCURATE • RELIABLE • TRUSTED</span>
+            </div>
+            <div class="header-contact">
+                <a href="https://wa.me/918077641383?text=Hi,%20I%20want%20to%20book%20a%20test." target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Your Trusted Diagnostic Partner</h2>
+        <p>Home Sample Collection Available | Fast & Accurate Reports</p>
+    </section>
+
+    <!-- Special Offer Poster Highlight -->
+    <div class="special-offer">
+        <h3><i class="fas fa-fire" style="color: #E11D48;"></i> SPECIAL OFFER: FEVER PROFILE (P-310)</h3>
+        <p>Complete Checkup for Fever & Infection (Urine Routine, ESR, Malarial Parasite, CBC 23, Widal)</p>
+        <div class="price-tag"><span>₹1400</span> ₹500 ONLY</div>
+        <a href="https://wa.me/918077641383?text=Hi,%20I%20want%20to%20book%20the%20Fever%20Profile%20(P-310)%20Offer%20for%20Rs.500" class="btn btn-wa" style="display:inline-block; margin-top:10px; width:auto; padding:8px 20px;">Book Special Offer</a>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search tests or packages (e.g., CBC, Thyroid, LFT)..." onkeyup="filterTests()">
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h3 class="section-title">Popular Packages</h3>
+        <div class="grid" id="packagesGrid">
+            <!-- Packages JS populated -->
+        </div>
+
+        <h3 class="section-title" style="margin-top: 40px;">Individual Blood & Diagnostic Tests</h3>
+        <div class="grid" id="testsGrid">
+            <!-- Tests JS populated -->
+        </div>
+
+        <!-- Appointment Form -->
+        <div class="form-section" id="bookingFormSection">
+            <h3 class="section-title" style="margin-bottom:15px;">Book an Appointment</h3>
+            <form id="labBookingForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label>Patient Name</label>
+                    <input type="text" id="patientName" required placeholder="Enter full name">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="patientPhone" required placeholder="Enter 10-digit mobile number">
+                </div>
+                <div class="form-group">
+                    <label>Select Test/Package</label>
+                    <select id="selectedTest">
+                        <option value="Fever Profile (P-310) - ₹500">Fever Profile (P-310) - ₹500</option>
+                        <option value="Complete Blood Count (CBC) - ₹250">Complete Blood Count (CBC) - ₹250</option>
+                        <option value="Liver Function Test (LFT) - ₹500">Liver Function Test (LFT) - ₹500</option>
+                        <option value="Kidney Function Test (KFT) - ₹500">Kidney Function Test (KFT) - ₹500</option>
+                        <option value="Lipid Profile - ₹650">Lipid Profile - ₹650</option>
+                        <option value="Fever Panel (1) - ₹400">Fever Panel (1) - ₹400</option>
+                        <option value="Fever Panel (2) - ₹1300">Fever Panel (2) - ₹1300</option>
+                        <option value="Fever Panel (3) - ₹2000">Fever Panel (3) - ₹2000</option>
+                        <option value="ANC Profile - ₹1599">ANC Profile - ₹1599</option>
+                        <option value="Other / Custom Test Request">Other / Custom Test Request</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sample Collection Type</label>
+                    <select id="collectionType">
+                        <option value="Home Sample Collection">Home Sample Collection</option>
+                        <option value="Visit Lab">Visit Lab</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Send Booking via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>NCR PRIME PATH LABS</strong></p>
+        <p><i class="fas fa-map-marker-alt"></i> Chaudhary Tajammaul Market, Durga Mandir Road, Jalpura, Greater Noida - 201306</p>
+        <p><i class="fas fa-phone"></i> Helpline: 80776 41383</p>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/918077641383?text=Hi!%20I%20have%20a%20query%20regarding%20blood%20tests." class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const phoneNo = "918077641383";
+
+        const packages = [
+            { name: "Fever Profile (P-310)", price: "500", desc: "CBC, Widal, ESR, Malarial Parasite, Urine Routine" },
+            { name: "Complete Blood Count (CBC)", price: "250", desc: "HB, TLC, DLC, RBC, PCV, MCV, MCH, MCHC, Platelet, ESR" },
+            { name: "Liver Function Test (LFT)", price: "500", desc: "Bilirubin, Protein, Albumin, Globulin, SGPT, SGOT, Alk Phos" },
+            { name: "Kidney Function Test (KFT)", price: "500", desc: "Blood Urea, Serum Creatinine, Blood Urea Nitrogen, Uric Acid, Calcium" },
+            { name: "Lipid Profile", price: "650", desc: "Cholesterol, Triglycerides, HDL, VLDL, LDL, Total Lipids" },
+            { name: "Fever Panel (1)", price: "400", desc: "CBC, MP, Widal, ESR" },
+            { name: "Fever Panel (2)", price: "1300", desc: "CBC, MP, Typhidot, Dengue (NS1)" },
+            { name: "Fever Panel (3)", price: "2000", desc: "CBC, MPQ, Typhidot, Dengue, LFT, KFT" },
+            { name: "ANC Profile", price: "1599", desc: "Blood Sugar, CBC, HIV, HCV, HBSAG, Blood Group" }
+        ];
+
+        const tests = [
+            { name: "Blood Sugar", price: "70" },
+            { name: "Thyroid Profile (T3, T4, TSH)", price: "500" },
+            { name: "TSH", price: "300" },
+            { name: "Widal Test", price: "100" },
+            { name: "Haemogram", price: "400" },
+            { name: "Blood Group", price: "150" },
+            { name: "Malaria Parasite QBC", price: "150" },
+            { name: "Serum Creatinine", price: "150" },
+            { name: "Serum Calcium", price: "150" },
+            { name: "Urine Routine & Microscopic", price: "150" },
+            { name: "Pregnancy Test (ELISA/Card)", price: "150" },
+            { name: "HIV (AIDS)", price: "250" },
+            { name: "HCV", price: "500" },
+            { name: "Australia Antigen (HBsAg)", price: "250" }
+        ];
+
+        function renderCards() {
+            const pkgGrid = document.getElementById('packagesGrid');
+            const testGrid = document.getElementById('testsGrid');
+
+            pkgGrid.innerHTML = packages.map(p => `
+                <div class="card package test-card">
+                    <div>
+                        <h4>${p.name}</h4>
+                        <p style="font-size:13px; color:#6B7280;">${p.desc}</p>
+                    </div>
+                    <div>
+                        <div class="price">₹${p.price}</div>
+                        <div class="card-actions">
+                            <a class="btn btn-wa" href="https://wa.me/${phoneNo}?text=Hi,%20I%20want%20to%20book%20${encodeURIComponent(p.name)}" target="_blank">WhatsApp</a>
+                            <a class="btn btn-book" href="#bookingFormSection">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            testGrid.innerHTML = tests.map(t => `
+                <div class="card test-card">
+                    <div>
+                        <h4>${t.name}</h4>
+                    </div>
+                    <div>
+                        <div class="price">₹${t.price}</div>
+                        <div class="card-actions">
+                            <a class="btn btn-wa" href="https://wa.me/${phoneNo}?text=Hi,%20I%20want%20to%20book%20${encodeURIComponent(t.name)}" target="_blank">WhatsApp</a>
+                            <a class="btn btn-book" href="#bookingFormSection">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterTests() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.test-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if(text.includes(input)) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            const test = document.getElementById('selectedTest').value;
+            const type = document.getElementById('collectionType').value;
+
+            const message = `Hello NCR PRIME PATH LAB,%0A%0AI want to book an appointment:%0A- *Name:* ${encodeURIComponent(name)}%0A- *Phone:* ${encodeURIComponent(phone)}%0A- *Test:* ${encodeURIComponent(test)}%0A- *Collection Type:* ${encodeURIComponent(type)}`;
+
+            window.open(`https://wa.me/${phoneNo}?text=${message}`, '_blank');
+        }
+
+        renderCards();
+    </script>
+</body>
+</html>
